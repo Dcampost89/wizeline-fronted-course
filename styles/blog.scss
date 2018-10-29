@@ -1,0 +1,105 @@
+
+
+.blog {
+    width: 100%;
+    height: 800px;
+    background-color: #F5F8FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__content{
+        width: 90%;
+        height: auto;
+        display: flex;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h4 {
+            @include title-4;
+        }
+        h3 {
+            @include title-3;
+        }
+        &__slider {
+            width: 90%;
+            display: flex;
+            align-items: stretch;
+            height: 394px;
+            margin: 50px 0px 50px;
+            &__slides {
+                background-color: #ffffff;
+                display: flex;
+                justify-content: space-evenly;
+                flex-grow: 2;
+                height: 394x;
+            }
+            &__arrow {
+                display: flex;
+                flex-grow: 1;
+                align-items: center;
+                justify-content: center;
+            }
+            &__slide {
+                width: 100%;
+                height: inherit;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                &__section {
+                    height: 267px;
+                }
+                img {
+                    width: 407px;
+                    height: 267px;
+                }
+                h2 {
+                    @include title-2;
+                }
+                p {
+                    @include text;
+                    text-align: justify;
+                }
+                .button {
+                    background-color: #D2E1FF;
+                    color: #3A79FF;
+                    font-family: $quicksand-font;
+                    font-size: 13px;
+                    font-weight: 700;
+                    float: left;
+                }
+                span {
+                    width: auto;
+                    display: flex;
+                    height: 43px;
+                    justify-content: center;
+                    align-items: center;
+                    color: #A6B6DA;
+                    font-family: $quicksand-font;
+                    font-size: 13px;
+                    font-weight: 700;
+                    float: left;
+                    margin-left: 20px;
+                }
+            }
+        }
+        &__controls {
+            list-style: none;
+            li {
+                display: inline-block;
+                a {
+                    width: 10px;
+                    height: 10px;
+                    display: block;
+                    border-radius: 50%;
+                    background-color: #D1D6E3;
+                    margin: 0px 5px 0px;
+                    &.selectted,
+                    &:hover {
+                        background-color: #5283FF;
+                    }
+                }
+            }
+        }
+    }
+}

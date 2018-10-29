@@ -37,6 +37,9 @@ $logo-bg-color: #5E81FE;
     color: #B6BAC7;
     text-decoration: none;
     padding: 0px 10px;
+    &:hover {
+      color: #5982E7;
+    }
   }
 }
 
