@@ -1,0 +1,43 @@
+$logo-bg-color: #5E81FE;
+
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  &__content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__left,
+    &__rigth {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__logo {
+    width: 36px;
+    height: 36px;
+    background-color: $logo-bg-color;
+    border-radius: 50%;
+  }
+  &__button {
+    background-color: #D2E1FF;
+    color: #3A79FF;
+    margin-left: 20px;
+  }
+}
+
+.social-networks {
+  margin-left: 50px;
+  &__item {
+    color: #B6BAC7;
+    text-decoration: none;
+    padding: 0px 10px;
+  }
+}
+
+
