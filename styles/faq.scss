@@ -20,6 +20,7 @@
     }
     &__questions {
         width: 60%;
+        margin-top: 50px;
         &__question {
             display: flex;
             flex-direction: column;
@@ -48,6 +49,29 @@
                 display: flex;
                 justify-content: space-evenly;
                 padding: 15px;
+                .text {
+                    @include text;
+                    text-align: justify;
+                    line-height: 1.5;
+                }
+                a {
+                    width: 195px;
+                    height: 43px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #E8ECF4;
+                    color: #7382A3;
+                    font-family: $quicksand-font;
+                    font-weight: 500;
+                    font-size: 13px;
+                }
+            }
+            &--open {
+                border-bottom: solid #8E96B7 1px;
+                a {
+                    color: #495274;
+                }
             }
         }
     }
