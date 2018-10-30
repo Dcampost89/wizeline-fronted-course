@@ -9,31 +9,33 @@
   <link rel="stylesheet" href="./dist/styles.css">
 </head>
 <body>
-  <div class="container">
+  <div id="container">
     <!-- Header Section -->
-    <header class="header">
-      <div class="header__content">
-        <div class="header__content__left">
+    <header class="main-container header">
+      <div class="sub-container header__content">
+        <div class="header__section">
           <div class="header__logo"></div>
           <div class="menu">
             <ul class="menu__items-list">
-              <li><a href="#" class="menu__items-list__item--selected">Home</a></li>
-              <li><a href="#" class="menu__items-list__item">Blog</a></li>
-              <li><a href="#" class="menu__items-list__item">Features</a></li>
-              <li><a href="#" class="menu__items-list__item">Pricing</a></li>
-              <li><a href="#" class="menu__items-list__item">Documentation</a></li>
+              <li><a href="#" class="menu__item--selected">Home</a></li>
+              <li><a href="#" class="menu__item">Blog</a></li>
+              <li><a href="#" class="menu__item">Features</a></li>
+              <li><a href="#" class="menu__item">Pricing</a></li>
+              <li><a href="#" class="menu__item">Documentation</a></li>
             </ul>
           </div>
         </div>
-        <div class="header__content__rigth">
+        <div class="header__section">
           <div class="social-networks">
               <a href="#" class="social-networks__item"><i class="fab fa-facebook-f"></i></a>
               <a href="#" class="social-networks__item"><i class="fab fa-telegram-plane"></i></a>
               <a href="#" class="social-networks__item"><i class="fab fa-twitter"></i></a>
               <a href="#" class="social-networks__item"><i class="fab fa-medium-m"></i></a>
           </div>
-          <a href="#" class="button header__button"><span class="button__text">Get Started</span></a>
-          <div class="menu-movil"></div>
+          <a href="#" class="button button--blue">Get Started</a>
+          <a id="menu-mobile-button" href="#">
+            <i class="fas fa-bars fa-2x"></i>
+          </a>
         </div>
       </div>
     </header>
@@ -51,7 +53,7 @@
         </div>
       </div>
 
-      <div class="customers">
+      <!-- <div class="customers">
         <div class="customers__content">
           <a href="#" id="bitbucket" class="customers__content__item"></a>
           <a href="#" id="apple" class="customers__content__item"></a>
@@ -315,40 +317,41 @@
             <a href="#">Save me</a>
           </div>  
         </div> 
-      </div>
+      </div> -->
 
     </div>
     
     <!-- Footer Section -->
-    <footer class="footer">
-      <div class="footer__content">
+    <footer class="footer main-container">
+      <div class="footer__content sub-container">
         <!-- Repeat the header section -->
-        <div class="header__content">
-          <div class="header__content__left">
+        <section>
+          <div class="footer__section">
             <div class="header__logo"></div>
             <div class="menu">
               <ul class="menu__items-list">
-                <li><a href="#" class="menu__items-list__item--selected">Home</a></li>
-                <li><a href="#" class="menu__items-list__item">Blog</a></li>
-                <li><a href="#" class="menu__items-list__item">Features</a></li>
-                <li><a href="#" class="menu__items-list__item">Pricing</a></li>
-                <li><a href="#" class="menu__items-list__item">Documentation</a></li>
+                <li><a href="#" class="menu__item--selected">Home</a></li>
+                <li><a href="#" class="menu__item">Blog</a></li>
+                <li><a href="#" class="menu__item">Features</a></li>
+                <li><a href="#" class="menu__item">Pricing</a></li>
+                <li><a href="#" class="menu__item">Documentation</a></li>
               </ul>
             </div>
           </div>
-          <div class="header__content__rigth">
+          <div class="footer__section">
             <div class="social-networks">
                 <a href="#" class="social-networks__item"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-networks__item"><i class="fab fa-telegram-plane"></i></a>
                 <a href="#" class="social-networks__item"><i class="fab fa-twitter"></i></a>
                 <a href="#" class="social-networks__item"><i class="fab fa-medium-m"></i></a>
             </div>
-            <a href="#" class="button header__button"><span class="button__text">Get Started</span></a>
-            <div class="menu-movil"></div>
+            <a href="#" class="button button--blue"><span class="button__text">Get Started</span></a>
           </div>
-        </div>
+        </section>
         <!-- Copyright text -->
-        <p class="footer__text">Copyright &copy; 2018 by Random site</p>
+        <section>
+          <p class="footer__text">Copyright &copy; 2018 by Random site</p>
+        </section>
       </div>
     </footer>
   </div>
