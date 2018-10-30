@@ -84,6 +84,13 @@ $screen-xl-min: 1200px; // Desktop
   }
 }
 
+@mixin bg-image($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 // Projects Styles
 body {
   margin:0;
