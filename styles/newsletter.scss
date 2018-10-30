@@ -1,0 +1,57 @@
+@mixin form-inputs {
+  font-family: $quicksand-font;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700; 
+}
+
+.newsletter {
+  width: 100%;
+  height: 332px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__content {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__text {
+    h4 {
+      font-family: $quicksand-font;
+      font-size: 18px;
+      font-weight: 700;
+      color: #3D4F9F;
+      margin: 0px 0px 10px;
+    }
+    p {
+      @include text;
+      text-align: justify;
+    }
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    input {
+      width: 249px;
+      height: 59px;
+      background-color: #EFEFF7;
+      border: none;
+      color: #7A85AD;
+      padding: 0px 15px 0px;
+      @include form-inputs;
+    }
+    a {
+      width: 184px;
+      height: 59px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #4D6CE1;
+      @include form-inputs;
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+  }
+}
