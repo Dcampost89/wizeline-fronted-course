@@ -6,9 +6,6 @@
     height: 266;
     flex-direction: column;
     margin: 40px 0px 0px;
-    @include xl {
-      margin: 90px 0px 0px;
-    }
     &__play-video {
       @include flex-container(55px);
       height: 55px;
@@ -25,15 +22,20 @@
     h2 {
       @include title-1;
       line-height: 2;
-      text-align: center;
-      @include xl {
-        line-height: 1;
-      }     
+      text-align: center;   
     }
     p {
       @include text;
       display: none;
-      @include xl {
+    }
+  }
+  @include xl {
+    &__content {
+      margin: 90px 0px 0px;
+      h2 {
+        line-height: 1;
+      }
+      p{
         display: block;
       }
     }

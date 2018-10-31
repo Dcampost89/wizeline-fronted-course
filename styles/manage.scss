@@ -2,15 +2,9 @@ $titles-color: #3D4F9F;
 $titles-margin: 0px 0px 10px;
 
 .manage {
-  width: 100%;
-  height: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 776px;
   background-color: #F5F8FF;
   &__content {
-    width: 90%;
-    height: 400px;
     h4 {
       @include title-4
     }
@@ -21,35 +15,65 @@ $titles-margin: 0px 0px 10px;
       @include text;
       text-align: justify;
     }
-    &__section {
-      width: 50%;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  &__section {
+    @include flex-container(100%);
+    flex-direction: column;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .desktop {
+      display: none;
+    }
+    &:last-child{
+      flex-direction: row;
+    }
+  }
+  &__video-button{
+    background-color: #4C85FF;
+    color: #ffffff;
+    font-family: $quicksand-font;
+    font-size: 13px;
+    font-weight: 700;
+    float: left;
+    i {
+      font-size: 8px;
+    }
+  }
+  &__features-button{
+    border: solid #D1D1E4 1px;
+    color: #ADB4D2;
+    font-family: $quicksand-font;
+    font-size: 13px;
+    font-weight: 500;
+    float: left;
+    margin-left: 1px;
+  }
+
+  @include xl {
+    &__content {
       height: 400px;
-      display: block;
-      float: left;
-      img {
-        width: 100%;
-        height: auto;
-      }
+      flex-direction: row;
+      justify-content: space-evenly;
     }
-    &__video-button{
-      background-color: #4C85FF;
-      color: #ffffff;
-      font-family: $quicksand-font;
-      font-size: 13px;
-      font-weight: 700;
-      float: left;
-      i {
-        font-size: 8px;
+    &__section {
+      @include flex-container(50%);
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 400px;
+      &:first-child {
+        align-items: center;
+        justify-content: center;
       }
-    }
-    &__features-button{
-      border: solid #D1D1E4 1px;
-      color: #ADB4D2;
-      font-family: $quicksand-font;
-      font-size: 13px;
-      font-weight: 500;
-      float: left;
-      margin-left: 1px;
+      &:last-child {
+        display: none;
+      }
+      .desktop {
+        display: block;
+      }
     }
   }
 }

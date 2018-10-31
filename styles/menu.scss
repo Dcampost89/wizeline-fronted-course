@@ -15,19 +15,11 @@ $default-font-size: 13px;
     padding: 0;
     @include flex-container(100%);
     flex-direction: column;
-    @include xl {
-      flex-direction: row;
-      justify-content: space-evenly;
-    }
   }
   &__items-list {
     list-style: none;
     li {
       display: block;
-      @include xl {
-        display: inline-block;
-        padding: 0px 10px;
-      }
     }
   }
   &__item {
@@ -40,6 +32,18 @@ $default-font-size: 13px;
     &:hover,
     &--selected {
       @include selected-item;
+    }
+  }
+  @include xl {
+    ul {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    &__items-list {
+      li {
+        display: inline-block;
+        padding: 0px 10px;
+      }
     }
   }
 }

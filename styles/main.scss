@@ -91,6 +91,19 @@ $screen-xl-min: 1200px; // Desktop
   background-repeat: no-repeat;
 }
 
+@mixin slider-control-dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0px 5px;
+  background-color: #D1D6E3;
+  &:hover,
+  &--selected {
+    background-color: #5283FF;
+  }
+}
+
 // Projects Styles
 body {
   margin:0;
@@ -129,6 +142,10 @@ body {
   &--blue {
     background-color: #D2E1FF;
     color: #3A79FF;
+  }
+  &--red {
+    background-color: #FFD7D7;
+    color: #D43F3F;
   }
 }
 
