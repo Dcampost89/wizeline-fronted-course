@@ -1,38 +1,55 @@
-$logo-bg-color: #5E81FE;
-
 .header {
-  width: 100%;
   height: 80px;
-  display: flex;
-  align-items: center;
   &__content{
-    width: 100%;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    &__left,
-    &__rigth {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  }
+  &__section {
+    @include flex-container(50%);
+    &:first-child {
+      justify-content: flex-start;
+    }
+    &:last-child {
+      justify-content: flex-end;
     }
   }
   &__logo {
     width: 36px;
     height: 36px;
-    background-color: $logo-bg-color;
+    background-color: #5E81FE;
     border-radius: 50%;
   }
-  &__button {
-    background-color: #D2E1FF;
-    color: #3A79FF;
-    margin-left: 20px;
+  .menu {
+    display: none;
+    @include md {
+      display: block;
+    }
+
+    @include lg {
+      display: block;
+    }
+
+    @include xl {
+      display: block;
+    }
+  }
+  .button {
+    display: none;
+    @include md {
+      display: flex;
+    }
+  
+    @include lg {
+      display: flex;
+    }
+  
+    @include xl {
+      display: flex;
+    }
   }
 }
 
 .social-networks {
-  margin-left: 50px;
+  margin: 0px 30px 0px 50px;
   &__item {
     color: #B6BAC7;
     text-decoration: none;
@@ -40,6 +57,14 @@ $logo-bg-color: #5E81FE;
     &:hover {
       color: #5982E7;
     }
+  }
+  display: none;
+  @include lg {
+    display: block;
+  }
+
+  @include xl {
+    display: block;
   }
 }
 

@@ -9,6 +9,11 @@ $open-sans-font: 'Open Sans', sans-serif;
 $titles-color: #3D4F9F;
 $titles-margin: 0px 0px 10px;
 
+//breakpoints
+$screen-md-min: 768px; // Tablet portrait
+$screen-lg-min: 992px; // Tablet landscape
+$screen-xl-min: 1200px; // Desktop
+
 
 // Mixins
 @mixin title-1 {
@@ -52,6 +57,53 @@ $titles-margin: 0px 0px 10px;
   line-height: 2;
 }
 
+// Recurrent layout styles
+@mixin flex-container($width) {
+  width: $width;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Media queries
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin bg-image($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin slider-control-dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0px 5px;
+  background-color: #D1D6E3;
+  &:hover,
+  &--selected {
+    background-color: #5283FF;
+  }
+}
+
 // Projects Styles
 body {
   margin:0;
@@ -59,54 +111,47 @@ body {
   height:100%;
 }
 
-.container {
+#container {
   min-height:100%;
   position:relative;
 }
 
 .body {
-  padding-bottom: 290px;
+  padding-bottom: 370px;
+  @include xl {
+    padding-bottom: 290px;
+  }
+}
+
+.main-container {
+  @include flex-container(100%);
+}
+
+.sub-container {
+  @include flex-container(90%);
 }
 
 .button {
-  width: 113px;
+  @include flex-container(113px);
   height: 43px;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-decoration: none;
-  &__text {
-    font-family: $quicksand-font;
-    font-size: 13px;
-    font-weight: 700;
+  font-family: $quicksand-font;
+  font-size: 13px;
+  font-weight: 700;
+  &--blue {
+    background-color: #D2E1FF;
+    color: #3A79FF;
   }
-}
-
-.footer {
-  width: 100%;
-  height: 287px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  flex-wrap: wrap;
-  border-top: solid 1px #D8E3FE;
-  &__content{
-    width: 100%;
-  }
-  &__text {
-    margin-left: 50px;
-    font-family: $quicksand-font;
-    font-size: 12px;
-    font-weight: 500;
-    color: #AEB8D0;
-    margin-top: 30px;
+  &--red {
+    background-color: #FFD7D7;
+    color: #D43F3F;
   }
 }
 
 // Splitted code
 @import './header.scss';
+@import './footer.scss';
 @import './menu.scss';
 @import './hero.scss';
 @import './customers.scss';
