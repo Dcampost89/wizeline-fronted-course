@@ -6,15 +6,9 @@
 }
 
 .newsletter {
-  width: 100%;
   height: 332px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   &__content {
-    width: 90%;
-    display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
   }
   &__text {
     h4 {
@@ -28,30 +22,50 @@
       @include text;
       text-align: justify;
     }
+    margin-bottom: 20px;
   }
   &__form {
-    display: flex;
-    align-items: center;
+    @include flex-container(100%);
+    flex-direction: column;
     input {
-      width: 249px;
+      width: 100%;
       height: 59px;
       background-color: #EFEFF7;
       border: none;
       color: #7A85AD;
       padding: 0px 15px 0px;
       @include form-inputs;
+      box-sizing: border-box;
     }
     a {
-      width: 184px;
+      @include flex-container(100%);
       height: 59px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-color: #4D6CE1;
       @include form-inputs;
       color: #ffffff;
       text-decoration: none;
-      margin-left: 15px;
+      margin-top: 30px;
+    }
+  }
+
+  @include xl {
+    &__content {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    &__text {
+      margin-bottom: 0;
+    }
+    &__form {
+      width: auto;
+      flex-direction: row;
+      input {
+        width: 249px;
+      }
+      a {
+        width: 184px;
+        margin: 0px 0px 0px 15px;
+      }
     }
   }
 }
