@@ -149,6 +149,21 @@ body {
   }
 }
 
+.pre-loader {
+  @include flex-container(100%);
+  flex-direction: column;
+  margin: 20px 0px;
+  &__icon {
+    color: $titles-color;
+  }
+  &__text {
+    @include title-3();
+  }
+  &--hidden {
+    display: none;
+  }
+}
+
 // Splitted code
 @import './header.scss';
 @import './footer.scss';
