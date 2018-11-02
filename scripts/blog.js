@@ -12,6 +12,8 @@ class Blog {
         this.sliderControls  = document.querySelector('#blog_slider_controls');
         this.currentSlide    = 0;
         this.totalSlides     = 0;
+        this.touchStartX     = 0;
+        this.touchEndX       = 0;
     }
 
     async fetchBlogArticles () {
@@ -23,20 +25,78 @@ class Blog {
     }
 
     moveSlider (target) {
-        const slides = document.querySelectorAll('.blog__slider__slide');
-        const constrols = document.querySelectorAll('#blog_slider_controls li a');
+        const slides    = document.querySelectorAll('.blog__slider__slide'); // reference to the slides
+        const controls = document.querySelectorAll('#blog_slider_controls li a'); // reference to the dots
         
+        // Hide the current slide and display the new selected one
         slides[this.currentSlide].classList.add('blog__slider__slide--hidden');
         slides[target].classList.remove('blog__slider__slide--hidden'); 
 
-        constrols[this.currentSlide].classList.remove('selectted');
-        constrols[target].classList.add('selectted');
+        // Remove the selected class from the current dot and add it to the new selected one
+        controls.forEach(el => {
+            el.classList.remove('selectted');
+        });
+        controls[target].classList.add('selectted');
         this.currentSlide = target;
     }
 
-    async initSlider () {
-        this.articles = await this.fetchBlogArticles();
-        this.totalSlides = this.articles.length;
+    nextSlide () {
+        const target = this.currentSlide < (this.totalSlides - 1) ? (parseInt(this.currentSlide) + 1) : 0;
+        this.moveSlider(target); 
+    }
+
+    previousSlide () {
+        const target = this.currentSlide > 0 ? (this.currentSlide - 1) : (this.totalSlides - 1);
+        this.moveSlider(target); 
+    }
+
+    swipeSlide () {
+        const swipeLength = this.touchStartX > 0 ? Math.abs(this.touchStartX - this.touchEndX) : 0;
+        if (swipeLength === 0 || swipeLength < 40) {
+            return;
+        }
+        if (this.touchStartX < this.touchEndX) {
+            this.previousSlide();
+        } else {
+            this.nextSlide();
+        }
+        this.touchStartX = 0;
+        this.touchEndX   = 0;
+    }
+
+    setSliderEventListeners () {
+        this.sliderControls.addEventListener('click', e => {
+            e.preventDefault();
+            if (e.target.tagName === 'A') {
+                this.moveSlider(e.target.getAttribute('data-slide'));
+            }
+        });
+
+        this.leftArrow.addEventListener('click', e => {
+            e.preventDefault();
+            this.previousSlide();
+        });
+
+        this.rightArrow.addEventListener('click', e => {
+            e.preventDefault();
+            this.nextSlide();
+        });
+
+        this.slidesContainer.addEventListener('touchstart', e => {
+            e.preventDefault();
+            const touch = e.touches.item(0);
+            this.touchStartX = touch.clientX;
+        });
+
+        this.slidesContainer.addEventListener('touchend', e => {
+            e.preventDefault();
+            const touch = e.changedTouches.item(0);
+            this.touchEndX = touch.clientX;
+            this.swipeSlide();
+        });
+    }
+
+    createSlides () {
         let slides = '';
         let controls = '';
         this.articles.forEach((item, index) => {
@@ -58,27 +118,21 @@ class Blog {
         });
         this.slidesContainer.innerHTML = slides;
         this.sliderControls.innerHTML = controls;
+    }
+
+    async initSlider () {
+        this.articles = await this.fetchBlogArticles();
+        this.totalSlides = this.articles.length;
+
+        this.createSlides();
+        this.setSliderEventListeners();
+        
         setTimeout(() => {
             this.preLoader.classList.add('pre-loader--hidden');
             this.slider.classList.remove('blog__slider--hidden');
         } ,1000);
         
-        this.sliderControls.addEventListener('click', e => {
-            e.preventDefault();
-            this.moveSlider(e.target.getAttribute('data-slide'));
-        });
-
-        this.leftArrow.addEventListener('click', e => {
-            e.preventDefault();
-            const target = this.currentSlide > 0 ? (this.currentSlide - 1) : (this.totalSlides - 1);
-            this.moveSlider(target); 
-        });
-
-        this.rightArrow.addEventListener('click', e => {
-            e.preventDefault();
-            const target = this.currentSlide < (this.totalSlides - 1) ? this.currentSlide + 1 : 0;
-            this.moveSlider(target); 
-        });
+        
     }
 }
 
