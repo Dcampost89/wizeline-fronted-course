@@ -104,6 +104,12 @@ $screen-xl-min: 1200px; // Desktop
   }
 }
 
+@mixin hover {
+  @media (hover:hover) {
+    @content;
+  }
+}
+
 // Projects Styles
 body {
   margin:0;
