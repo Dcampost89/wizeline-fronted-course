@@ -16,10 +16,21 @@
         &__question {
             display: flex;
             flex-direction: column;
-            padding: 10px 0px;
             border-bottom: solid #8E96B7 1px;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            transition: height 0.5s ease-out padding 0.3 linear;
             &__header{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                height: 60px;
+                padding: 10px;
+                box-sizing: border-box;
                 a {
+                    width: 100%;
+                    height: 60px;
                     display: flex;
                     align-items: center;
                     text-decoration: none;
@@ -27,7 +38,6 @@
                     font-size: 15px;
                     font-weight: 500;
                     color: #8E96B7;
-                    padding: 10px;
                 }
                 span {
                     padding-left: 10px;
@@ -38,9 +48,15 @@
                 }
             }
             &__body{
+                width: 100%;
+                height: 225px;
                 display: flex;
                 flex-direction: column;
                 padding: 15px;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                box-sizing: border-box;
                 .text {
                     @include text;
                     text-align: justify;
@@ -57,7 +73,8 @@
                     @include flex-container(100%);
                 }
             }
-            &--open {
+            &--expanded {
+                height: 285px;
                 a {
                     color: #495274;
                 }
@@ -69,7 +86,9 @@
             width: 60%;
             margin-top: 50px;
             &__question {
+                height: 60px;
                 &__body {
+                    height: 95px;
                     flex-direction: row;
                     justify-content: space-evenly;
                     .text {
@@ -79,6 +98,9 @@
                     .actions {
                         width: 30%;
                     }
+                }
+                &--expanded {
+                    height: 155px;
                 }
             }
         }

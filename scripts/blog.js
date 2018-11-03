@@ -9,7 +9,7 @@ class Blog {
         this.leftArrow       = document.querySelector('#blog__slider__left-arrow');
         this.rightArrow      = document.querySelector('#blog__slider__right-arrow');
         this.preLoader       = document.querySelector('#blog__pre-loader');
-        this.sliderControls  = document.querySelector('#blog_slider_controls');
+        this.sliderControls  = document.querySelector('#blog__slider__controls');
         this.currentSlide    = 0;
         this.totalSlides     = 0;
         this.touchStartX     = 0;
