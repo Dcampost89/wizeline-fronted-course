@@ -29,6 +29,18 @@
       display: none;
     }
   }
+  @include md {
+    &__content {
+      p {
+        display: block;
+      }
+    }
+  }
+  @include lg {
+    &__content {
+      margin-top: 50px;
+    }
+  }
   @include xl {
     &__content {
       margin: 90px 0px 0px;
